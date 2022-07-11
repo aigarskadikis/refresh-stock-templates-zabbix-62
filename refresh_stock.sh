@@ -25,9 +25,10 @@ cd -
 find /tmp/zabbix-release-6.2/templates -type f -name '*.yaml' | \
 while IFS= read -r TEMPLATE
 do {
-php delete_missing.php $SID $JSONRPC $TEMPLATE | jq .result | grep "true"
+php delete_missing.php $SID $JSONRPC $TEMPLATE | jq .result | grep "true" | tr '\n' '\0'
+echo " " | tr '\n' '\0'
 # if 'true' not received the print the template name
-[[ $? -ne 0 ]] && echo $TEMPLATE
+[[ $? -ne 0 ]] && echo -e "\n$TEMPLATE\n"
 } done
 
 find /tmp/zabbix-release-6.2/templates/media -type f -name '*.yaml' | \

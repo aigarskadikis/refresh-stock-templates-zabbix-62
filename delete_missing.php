@@ -23,7 +23,8 @@ $request = json_encode([
     'params' => [
         'format' => 'yaml',
         'rules' => [
-            'groups' => ['updateExisting' => true, 'createMissing' => true],
+            'template_groups' => ['updateExisting' => true, 'createMissing' => true],
+            'host_groups' => ['updateExisting' => true, 'createMissing' => true],
             'templates' => ['updateExisting' => true, 'createMissing' => true],
             'valueMaps' => ['updateExisting' => true, 'createMissing' => true, 'deleteMissing' => true],
             'templateDashboards' => ['updateExisting' => true, 'createMissing' => true, 'deleteMissing' => true],
